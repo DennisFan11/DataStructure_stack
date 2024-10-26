@@ -1,1 +1,5 @@
-"# DataStructure_stack" 
+"# DataStructure_stack"
+"老鼠走迷宮"
+"itch:https://dennis515jd.itch.io/datastructure-stack-maze"
+"Windows: Build/"
+"godot v4.3.stable.official [77dcf97d8]"
