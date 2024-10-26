@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://sn6gnbrcswgs"]
+
+[ext_resource type="Texture2D" uid="uid://wnb5ibifgx5g" path="res://Blocks/wall/wall.png" id="1_3wtj5"]
+
+[node name="WallBlock" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_3wtj5")

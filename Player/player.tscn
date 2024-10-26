@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dprcgxu5suoj3"]
+
+[ext_resource type="Texture2D" uid="uid://b6ycp5hgbebwq" path="res://icon.svg" id="1_xb13e"]
+[ext_resource type="Script" path="res://Player/icon.gd" id="2_1c554"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-8, -16, 8, -16, 0, 0)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(-0.0963102, 0.2)
+texture = ExtResource("1_xb13e")
+script = ExtResource("2_1c554")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyeany72ea7g5"]
+
+[ext_resource type="Script" path="res://hintText/hint_text.gd" id="1_l2kdn"]
+
+[node name="HintText" type="Node2D"]
+script = ExtResource("1_l2kdn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -41.0
+offset_top = -15.0
+offset_right = 148.0
+offset_bottom = 41.0
+bbcode_enabled = true
+text = "[font_size=20][color=yellow]能量 + 10[/color][/font_size]"
