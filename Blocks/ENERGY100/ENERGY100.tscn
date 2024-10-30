@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr7xgv15pf7kf"]
+
+[ext_resource type="Shader" path="res://Blocks/Energy/Energy_block.gdshader" id="1_51vq4"]
+[ext_resource type="Script" path="res://Blocks/Energy/color_rect.gd" id="2_o1qyx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qq7i"]
+shader = ExtResource("1_51vq4")
+
+[node name="Energy100" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8qq7i")
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.745285, 1)
+pivot_offset = Vector2(16, 16)
+color = Color(0.242461, 0.960092, 1, 1)
+script = ExtResource("2_o1qyx")

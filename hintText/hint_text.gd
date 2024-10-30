@@ -7,3 +7,5 @@ func _ready() -> void:
 	ctween.tween_property(self, "modulate", Color(1,1,1,0), TIME)
 	var freeTween = get_tree().create_tween()
 	freeTween.tween_callback(queue_free).set_delay(TIME)
+func set_text(text):
+	$RichTextLabel.text = text

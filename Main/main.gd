@@ -7,9 +7,10 @@ const BlockSize = Vector2(32, 32)
 	preload("res://Blocks/Walked/walked_block.tscn"),
 	preload("res://Blocks/Energy/Energy_block.tscn"),
 	preload("res://Blocks/Undo/undo_block.tscn"),
-	preload("res://Blocks/Target/Target.tscn")
+	preload("res://Blocks/Target/Target.tscn"),
+	preload("res://Blocks/ENERGY100/ENERGY100.tscn")
 ]
-enum {ROAD, WALL, WALKED, ENERGY, UNDO, TARGET}
+enum {ROAD, WALL, WALKED, ENERGY, UNDO, TARGET, ENERGY100}
 func _ready() -> void:
 	$Player.position = Vector2.ZERO
 var data = []
@@ -84,19 +85,32 @@ func _can_walk(pos:Vector2)->bool:
 		if data[pos.y][pos.x] == ROAD:
 			return true
 		if data[pos.y][pos.x] == ENERGY:
-			tot_energy+=10
+			tot_energy+=80
 			_energy_hint()
+			return true
+		if data[pos.y][pos.x] == ENERGY100:
+			tot_energy+=100
+			_energy_hint2()
 			return true
 		if data[pos.y][pos.x] == TARGET:
 			win = true
 			return true
 	return false
+
+
 var hint_scene = preload("res://hintText/hintText.tscn")
 func _energy_hint():
+	var str = "[font_size=20][color=yellow]能量 + 80[/color][/font_size]"
 	var node = hint_scene.instantiate()
 	node.position = curr_pos*BlockSize
+	node.set_text(str)
 	add_child(node)
-
+func _energy_hint2():
+	var str = "[font_size=20][color=aqua]能量 + 100[/color][/font_size]"
+	var node = hint_scene.instantiate()
+	node.position = curr_pos*BlockSize
+	node.set_text(str)
+	add_child(node)
 func _spawn():
 	var pos = Vector2.ZERO
 	for line in data:
@@ -136,8 +150,10 @@ func _parse(str:String): # 字串解析
 					line.append(ROAD)
 				"*":
 					line.append(ENERGY)
-				"T":
+				"#":
 					line.append(TARGET)
+				"$":
+					line.append(ENERGY100)
 			insLine.append(null)
 		data.append(line)
 		instance.append(insLine)
